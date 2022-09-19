@@ -42,7 +42,9 @@ function App() {
 
   return (
     <>
-    <div className="logo">NOTED.</div>
+    <div className="logo">
+      Noted.
+    </div>
     <div className="App">
       <SideBar addNote={addNote}/>
       <NotesList notes={notes} updateNote={updateNote} deleteNote={deleteNote}/>
