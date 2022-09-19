@@ -1,22 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
   background-color: rgb(248, 252, 231);
+  font-family: 'Hind', sans-serif;
 }
 
 .logo {
+  user-select: none;
+  font-family: 'Fredoka One', cursive;
   background-color: rgb(248, 252, 231);
   /* border: 2px solid red; */
   font-size: 60px;
@@ -24,7 +21,7 @@ body {
   padding: 20px 54px;
   position: fixed;
   width: 100%;
-  /* z-index: 1; */
+  z-index: 1;
 }
 
 .logo + .App {
@@ -41,13 +38,18 @@ body {
   /* border: 2px solid red; */
   font-size: 3.1em;
   margin-top: 20px;
-  margin-left: 40px;
   cursor: pointer;
-  transition: 400ms ease-out;
+  transition: 500ms ease-out;
+  z-index: -1;
 }
+
 
 .rotate-btn {
   transform: rotate(45deg);
+}
+
+.sidebar--container + .notes--container {
+  margin-left: 15%;
 }
 
 .sidebar--container {
@@ -59,6 +61,7 @@ body {
   /* height: 90vh; */
   /* border: 2px solid red; */
   align-items: center;
+  position: fixed;
 }
 
 .sidebar--list {
@@ -87,10 +90,14 @@ body {
 
 .notes--container {
   display: flex;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
-  gap: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  gap: 40px;
+  margin-bottom: 100px;
   width: 82%;
-  height: 90%;
+  /* height: 90%; */
   /* border: 2px solid red; */
   /* overflow-y: scroll; */
 }
@@ -100,7 +107,8 @@ body {
   border-radius: 30px;
   padding: 1.2rem;
   height: 200px;
-  width: 240px;
+  min-width: 210px;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -127,4 +135,22 @@ body {
 .delete--icon {
   cursor: pointer;
   font-size: 23px;
+}
+
+.delete--icon:hover {
+  color: rgb(53, 53, 63);
+}
+
+.empty--note--signal {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  opacity: 0.4;
+  user-select: none;
+}
+
+.fake--btn {
+  margin: 0px 10px;
 }

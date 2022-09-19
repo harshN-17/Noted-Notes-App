@@ -14,7 +14,7 @@ function App() {
     const tempNotes = [...notes];
     tempNotes.push({
       id: nanoid(),
-      text: "Type Something...",
+      text: "",
       time: Date.now(),
       color,
     })

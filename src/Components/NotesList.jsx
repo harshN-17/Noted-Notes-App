@@ -1,5 +1,6 @@
-import React from 'react'
-import NotesCard from './NotesCard'
+import React from 'react';
+import NotesCard from './NotesCard';
+import {BsPlusCircleFill} from 'react-icons/bs';
 
 export default function NotesList(props) {
     const reverseArray = (arr) => {
@@ -22,7 +23,15 @@ export default function NotesList(props) {
     })
   return (
     <div className='notes--container'>
-      {notes}
+      {
+        notes.length > 0 ? 
+        notes : 
+        <h1 className='empty--note--signal'>
+            Tap on the
+            <BsPlusCircleFill className='fake--btn'/>
+            button!
+        </h1>
+      }
     </div>
   )
 }
