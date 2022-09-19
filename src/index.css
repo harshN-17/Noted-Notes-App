@@ -11,3 +11,94 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  /* background-color: aqua; */
+}
+
+.App {
+  display: flex ;
+  gap: 20px;
+}
+
+.plus--btn {
+  font-size: 3.3em;
+  margin-top: 20px;
+  margin-left: 40px;
+  cursor: pointer;
+  transition: 400ms ease-out;
+}
+
+.rotate-btn {
+  transform: rotate(45deg);
+}
+
+.sidebar--container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+  height: 90vh;
+  /* border: 2px solid red; */
+  align-items: center;
+}
+
+.sidebar--list {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 500ms ease-in-out;
+}
+
+.disable {
+  height: 0px;
+}
+
+.sidebar--list--items {
+  cursor: pointer;
+  list-style-type: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.notes--container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 90%;
+  /* overflow-y: scroll; */
+}
+
+.notes--card {
+  border-radius: 10px;
+  padding: 0.5rem;
+  height: 200px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* white-space: pre-wrap; */
+}
+
+.card--text--area {
+  /* height: 100%; */
+  min-height: 150px;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.card--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.delete--icon {
+  cursor: pointer;
+}

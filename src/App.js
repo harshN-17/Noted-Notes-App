@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {nanoid} from 'nanoid';
+import {useState, useEffect} from 'react';
+import NotesList from './Components/NotesList.jsx';
+import SideBar from './Components/SideBar.jsx'
 
 function App() {
+
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("noted-data")) || []
+  );
+
+  const addNote = (color) => {
+    const tempNotes = [...notes];
+    tempNotes.push({
+      id: nanoid(),
+      text: "Type Something...",
+      time: Date.now(),
+      color,
+    })
+    setNotes(tempNotes);
+  }
+
+  const updateNote = (text, id) => {
+    const tempNotes = [...notes];
+
+    const index = tempNotes.findIndex((item) => item.id === id);
+    // if (index < 0) return;
+
+    tempNotes[index].text = text;
+    setNotes(tempNotes);
+  }
+
+  const deleteNote = (id) => {
+    const tempNotes = notes.filter((note)=>note.id!==id);
+    setNotes(tempNotes);
+  }
+
+  useEffect(()=>{
+    localStorage.setItem("noted-data", JSON.stringify(notes));
+  },[notes]);
+
   return (
+    <>
+    <div className="logo">NOTED.</div>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SideBar addNote={addNote}/>
+      <NotesList notes={notes} updateNote={updateNote} deleteNote={deleteNote}/>
     </div>
+    </>
   );
 }
 
