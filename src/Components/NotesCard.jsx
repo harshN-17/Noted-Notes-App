@@ -2,7 +2,7 @@ import React from 'react'
 import {MdDelete} from 'react-icons/md';
 
 export default function NotesCard(props) {
-    console.log(props);
+    // console.log(props);
     const trimTime = (time) => {
         const monthNames = [
             "_",
@@ -19,12 +19,16 @@ export default function NotesCard(props) {
             "Nov",
             "Dec",
           ];
-        const date = new Date(time);
-        const day = date.getDate();
-        const month = monthNames[date.getMonth()];
-        const hrs = date.getHours();
-        const min = date.getMinutes();
-        return `${hrs}:${min}, ${day}th ${month}`;
+        let date = new Date(time);
+        let day = date.getDate();
+        day = day < 10 ? "0"+day : day;
+        let month = monthNames[date.getMonth()];
+        month = month < 10 ? "0" + month: month;
+        let hrs = date.getHours();
+        hrs = hrs < 10 ? "0" + hrs: hrs;
+        let min = date.getMinutes();
+        min = min < 10 ? "0" + min: min;
+        return `${hrs}:${min}, ${day} ${month}`;
     }
   return (
     <div className='notes--card' style={{backgroundColor: props.note.color}}>
